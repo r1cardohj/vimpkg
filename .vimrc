@@ -22,15 +22,9 @@ endif
 
 " plug
 call plug#begin()
-  Plug 'preservim/nerdtree'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-
-" nerdtree settings
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
