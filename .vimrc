@@ -27,14 +27,14 @@ augroup complete
 augroup end
 
 if has('gui_running')
-	colorscheme fruity
+    colorscheme fruity
     if has("win32") || has("win64")
         set guifont=Consolas:h18
     else
         set guifont=MiscFixed\ Semi-Condensed\ 10
     endif
 else
-	colorscheme slate	
+    colorscheme slate	
 endif
 
 " plug
