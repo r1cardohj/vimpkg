@@ -12,7 +12,7 @@ filetype plugin indent on
 set completeopt=longest,menu
 set nocompatible
 set background=dark
-:colorscheme fruity
+set pumheight=10 " 设置补全菜单的高度为10行
 
 " set leader key
 let mapleader = "\<space>"
