@@ -1,4 +1,5 @@
 " base with no plug --------------------------------------------------
+set encoding=utf-8
 set tabstop=4
 syntax on
 set nu
@@ -63,7 +64,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline_theme = "angr"
 
 " Coc config----------------------------------------------------------
-set encoding=utf-8
+
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
