@@ -26,6 +26,9 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+" set leader key
+let mapleader = "\<space>"
+
 "切换回车为补全
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " 补全结束后窗口自动消失
