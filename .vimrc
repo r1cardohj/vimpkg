@@ -13,19 +13,6 @@ set completeopt=longest,menu
 set nocompatible
 set background=dark
 :colorscheme fruity
-" set netrw 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-
-" set netrw 
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
 
 " set leader key
 let mapleader = "\<space>"
@@ -33,6 +20,23 @@ let mapleader = "\<space>"
 "切换回车为补全
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " 补全结束后窗口自动消失
+
+" tab split
+nnoremap <leader>st :tab split<CR>
+" close current tab
+nnoremap <leader>ct :tabc <CR> 
+" switch form
+nnoremap <leader>h :wincmd h<CR>  
+nnoremap <leader>j :wincmd j<CR>  
+nnoremap <leader>k :wincmd k<CR>  
+nnoremap <leader>l :wincmd l<CR>  
+
+
+"<Leader>[1-9] move to tab [1-9]
+for s:i in range(1, 9)
+  execute 'nnoremap <Leader>' . s:i . ' ' . s:i . 'gt'
+endfor
+
 augroup complete
   autocmd!
   autocmd CompleteDone * pclose
@@ -54,10 +58,11 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'preservim/nerdtree'
 call plug#end()
 
 
-" airline settings
+" airline settings----------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -132,3 +137,63 @@ endfunction
 
 " Symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
+
+" Mappings for CoCList
+" Show all diagnostics.
+nnoremap <silent><nowait> <leader>a  :<C-u>CocList diagnostics<cr>
+" Do default action for next item.
+nnoremap <silent><nowait> <leader>,  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent><nowait> <leader>.  :<C-u>CocPrev<CR>
+" Find symbol of current document.
+nnoremap <silent><nowait> <leader>o  :<C-u>CocList outline<cr>
+" Search workspace symbols.
+nnoremap <silent><nowait> <leader>s  :<C-u>CocList -I symbols<cr>
+" Resume latest coc list.
+nnoremap <silent><nowait> <leader>p  :<C-u>CocListResume<CR>
+
+" NerdTree Settings-------------------------------------------------
+augroup nerdtree_settings
+  autocmd!
+  map <leader>t :NERDTreeToggle<CR>
+  nnoremap <leader>d :NERDTreeFind<cr>
+  let NERDTreeShowHidden=2
+    " 设置宽度
+    let NERDTreeWinSize=30
+    " 在终端启动vim时，共享NERDTree
+    let g:nerdtree_tabs_open_on_console_startup=1
+    " 忽略以下文件的显示
+    let NERDTreeIgnore=['\.pyc','\~$',
+                \ '\.swp',
+                \ '\.o',
+                \ '.DS_Store',
+                \ '\.orig$',
+                \ '@neomake_',
+                \ '.coverage.',
+                \ '.history',
+                \ '__pycache__$[[dir]]',
+                \ 'debug_json$[[dir]]',
+                \ 'debug$[[dir]]',
+                \ '.pytest_cache$[[dir]]',
+                \ '.git$[[dir]]',
+                \ '.idea[[dir]]',
+                \ '.vscode[[dir]]',
+                \ 'htmlcov[[dir]]',
+                \ 'test-reports[[dir]]',
+                \ '.egg-info$[[dir]]']
+                " 显示书签列表
+    let NERDTreeShowBookmarks=1
+    " vim不指定具体文件打开时，自动使用nerdtree
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree |endif
+
+    " 当vim打开一个目录时，nerdtree自动使用
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+    " 打开新的窗口，focus在buffer里而不是NerdTree里
+    autocmd VimEnter * :wincmd l
+
+    " 当vim中没有其他文件，值剩下nerdtree的时候，自动关闭窗口
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+augroup END
