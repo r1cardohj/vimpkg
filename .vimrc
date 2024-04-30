@@ -6,7 +6,7 @@ set showmatch
 set cindent
 set autoindent
 set shiftwidth=4
-set softtabstop=4
+set softtabstop=0              " 关闭softtabstop 永远不要将空格和tab混合输入
 filetype plugin indent on
 set completeopt=longest,menu
 set nocompatible
