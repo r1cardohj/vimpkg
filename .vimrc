@@ -14,6 +14,7 @@ set nocompatible
 set background=dark
 set pumheight=10 " 设置补全菜单的高度为10行
 
+
 " set leader key
 let mapleader = "\<space>"
 
@@ -43,14 +44,11 @@ augroup complete
 augroup end
 
 if has('gui_running')
-    colorscheme fruity
     if has("win32") || has("win64")
-        set guifont=Consolas:h18
+        set guifont=Consolas:h16
     else
         set guifont=MiscFixed\ Semi-Condensed\ 10
     endif
-else
-    colorscheme slate	
 endif
 
 " plug---------------------------------------------------------------
@@ -59,10 +57,13 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'preservim/nerdtree'
+  Plug 'tomasr/molokai'
 call plug#end()
 
+colorscheme molokai
+let g:molokai_original = 1
 
-" airline settings----------------------------------------------------
+" airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
