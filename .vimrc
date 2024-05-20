@@ -26,12 +26,6 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nnoremap <leader>st :tab split<CR>
 " close current tab
 nnoremap <leader>ct :tabc <CR> 
-" switch form
-nnoremap <leader>h :wincmd h<CR>  
-nnoremap <leader>j :wincmd j<CR>  
-nnoremap <leader>k :wincmd k<CR>  
-nnoremap <leader>l :wincmd l<CR>  
-
 
 "<Leader>[1-9] move to tab [1-9]
 for s:i in range(1, 9)
