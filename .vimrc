@@ -13,7 +13,7 @@ set completeopt=longest,menu
 set nocompatible
 set background=dark
 set pumheight=10 " 设置补全菜单的高度为10行
-
+set t_Cot=256 "best color
 
 " set leader key
 let mapleader = "\<space>"
@@ -52,6 +52,8 @@ call plug#begin()
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'preservim/nerdtree'
   Plug 'tomasr/molokai'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 colorscheme molokai
