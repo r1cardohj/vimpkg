@@ -54,16 +54,20 @@ call plug#begin()
   Plug 'tomasr/molokai'
   Plug 'jiangmiao/auto-pairs'
   Plug 'tpope/vim-fugitive'
+  Plug 'scrooloose/nerdcommenter' "快速注释
+  Plug 'tpope/vim-surround'
 call plug#end()
 
 colorscheme molokai
 let g:molokai_original = 1
 
 " airline settings
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline_theme = "angr"
+let g:airline#extensions#tabline#left_alt_sep = '>'
+let g:airline#extensions#fugitive#enabled = 1
+let g:airline_theme = "tomorrow"
 
 " Coc config----------------------------------------------------------
 
