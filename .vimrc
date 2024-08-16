@@ -54,16 +54,14 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'preservim/nerdtree'
-  Plug 'tomasr/molokai'
+  Plug 'noahfrederick/vim-hemisu'
   Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdcommenter' "快速注释
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-surround'
 call plug#end()
 
-colorscheme molokai
-let g:molokai_original = 1
-
+colorscheme hemisu
 
 " airline settings
 let g:airline_powerline_fonts = 1
