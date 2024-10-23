@@ -15,7 +15,6 @@ set background=dark
 set pumheight=10 " 设置补全菜单的高度为10行
 " 颜色拉满
 set t_Co=256
-set updatetime=100
 set signcolumn=yes
 
 " set leader key
@@ -28,7 +27,7 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " tab split
 nnoremap <leader>st :tab split<CR>
 " close current tab
-nnoremap <leader>ct :tabc <CR> 
+nnoremap <leader>ct :tabc <CR>
 
 
 "<Leader>[1-9] move to tab [1-9]
@@ -59,6 +58,11 @@ call plug#begin()
   Plug 'scrooloose/nerdcommenter' "快速注释
   Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-surround'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'mhinz/vim-startify'
+  Plug 'voldikss/vim-translator'
 call plug#end()
 
 colorscheme hemisu
@@ -116,3 +120,9 @@ augroup nerdtree_settings
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 augroup END
+
+" Display translation in a window
+nmap <silent> <Leader>w <Plug>TranslateW
+vmap <silent> <Leader>w <Plug>TranslateWV
+
+let g:translator_default_engines = ['bing']
