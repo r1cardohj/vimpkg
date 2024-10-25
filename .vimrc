@@ -65,7 +65,6 @@ call plug#begin()
   Plug 'voldikss/vim-translator'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'antoinemadec/coc-fzf'
-  Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 colorscheme hemisu
@@ -278,12 +277,3 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocFzfListResume<CR>
 nnoremap <silent><nowait> <space>l  :<C-u>CocFzfList location<CR>
-
-" float-term Settings
-let g:floaterm_keymap_new = '<Leader>ft'
-let g:floaterm_keymap_prev   = '<Leader>fp'
-let g:floaterm_keymap_next   = '<Leader>fn'
-let g:floaterm_keymap_toggle = '<Leader>fg'
-let g:floaterm_keymap_first = '<Leader>ff'
-let g:floaterm_keymap_last = '<Leader>fl'
-let g:floaterm_keymap_kill = '<Leader>fk'
